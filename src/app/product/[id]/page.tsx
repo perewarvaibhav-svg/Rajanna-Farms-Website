@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import MobileNav from '@/components/MobileNav';
 
 const productsDB: Record<string, any> = {
   "desi-ghee": {
@@ -56,6 +57,7 @@ export default function ProductPage() {
           <Link href="/#products" className="nav-link">Shop</Link>
           <button className="btn btn-sm" style={{ marginLeft: '10px' }}>Cart (0)</button>
         </nav>
+        <MobileNav />
       </header>
 
       <div className="container product-page-container animate-fade-up delay-1">

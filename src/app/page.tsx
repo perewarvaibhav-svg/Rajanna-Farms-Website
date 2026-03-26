@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import MobileNav from '@/components/MobileNav';
 
 export default function Home() {
   return (
     <main>
       {/* 1. Header (logo + menu) */}
       <header className="top-nav animate-fade-up">
-        <a href="#" className="brand-logo">Rajanna Farms</a>
+        <a href="/" className="brand-logo">Rajanna Farms</a>
         <nav className="nav-actions">
           <a href="#categories" className="nav-link">Categories</a>
           <a href="#products" className="nav-link">Shop</a>
@@ -15,6 +16,7 @@ export default function Home() {
           <a href="#about-us" className="nav-link">About Us</a>
           <button className="btn btn-sm" style={{ marginLeft: '10px' }}>Cart (0)</button>
         </nav>
+        <MobileNav />
       </header>
 
       {/* 2. Offer scrolling bar (Marquee) */}
