@@ -5,9 +5,9 @@
   --primary-hover: #122B18;
   --text-main: #1D2A20;    /* Charcoal tinted with green */
   --text-muted: #64746A;   /* Soft sage grey */
-  --bg-color: #F4F6F1;     /* Organic Creamy White (KnitKnots inspired) */
+  --bg-color: #E4EFE0;     /* Fresh Light Green Background */
   --card-bg: #FFFFFF;      
-  --border-color: #DEE4D8; /* Soft green border outline */
+  --border-color: #CDE2C5; /* Tone-matched green border */
   --ease-out-framer: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-slow-pan: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
