@@ -348,12 +348,18 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   gap: 16px;
   padding-bottom: 24px;
+  background: transparent;
+  overflow: hidden;
+  transition: border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s;
+}
+
+.product-item:hover {
+  background: var(--card-bg);
 }
 
 .product-image-container {
   position: relative;
   height: 380px;
-  border-radius: 32px;
   overflow: hidden;
   background: var(--card-bg);
 }
@@ -362,14 +368,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
-}
-
-.product-item:hover .product-image-container img {
-  /* Lift and tilt */
-  transform: scale(1.05) translateY(-5px) rotate(-1deg);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .product-details {
@@ -421,12 +421,18 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   gap: 16px;
   padding-bottom: 24px;
+  background: transparent;
+  overflow: hidden;
+  transition: border-radius 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s;
+}
+
+.best-product-card:hover {
+  background: var(--card-bg);
 }
 
 .best-product-img-wrapper {
   position: relative;
   height: 400px;
-  border-radius: 32px;
   overflow: hidden;
 }
 
@@ -434,13 +440,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
-}
-
-.best-product-card:hover .best-product-img-wrapper img {
-  transform: scale(1.06) translateY(-8px) rotate(1.5deg);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 .discount-badge {
