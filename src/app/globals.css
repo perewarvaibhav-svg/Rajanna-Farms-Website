@@ -4,10 +4,10 @@
   --primary: #1A3C22;      /* Deep Farm/Forest Green */
   --primary-hover: #122B18;
   --text-main: #1D2A20;    /* Charcoal tinted with green */
-  --text-muted: #64746A;   /* Soft sage grey */
-  --bg-color: #E4EFE0;     /* Fresh Light Green Background */
+  --text-muted: #516A5A;   /* Darker sage grey for readability on green */
+  --bg-color: #CCE8C4;     /* Noticeably more vibrant Light Green */
   --card-bg: #FFFFFF;      
-  --border-color: #CDE2C5; /* Tone-matched green border */
+  --border-color: #A3C997; /* Tone-matched deep green border */
   --ease-out-framer: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-slow-pan: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
