@@ -49,13 +49,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-up {
   opacity: 0;
-  animation: fadeUp 1s var(--ease-out-framer) forwards;
+  transform: translateY(40px);
+  filter: blur(8px);
+  transition: opacity 1.2s var(--ease-out-framer), transform 1.2s var(--ease-out-framer), filter 1.2s var(--ease-out-framer);
 }
 
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+.animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+  /* Use simple transitions instead of keyframes to prevent React hydration overrides */
+}
+
+.delay-1.is-visible { animation-delay: 0.1s; }
+.delay-2.is-visible { animation-delay: 0.2s; }
+.delay-3.is-visible { animation-delay: 0.3s; }
+.delay-4.is-visible { animation-delay: 0.4s; }
 
 /* Remove broken mask-reveal completely to stop invisible image bug */
 .animate-mask-reveal {
@@ -161,13 +170,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.08em;
 }
 
-/* Hero Section */
+/* Hero Section — Full-width edge-to-edge rectangle, no rounded corners */
 .hero {
   position: relative;
-  aspect-ratio: 21/9; /* Perfect widescreen photography ratio so it doesn't wildly crop */
-  max-height: 85vh;
-  margin: 20px 40px;
-  border-radius: 32px;
+  min-height: 100vh; /* Fill the full viewport height */
+  margin: 0;         /* No side margins — full bleed */
+  border-radius: 0;  /* Sharp rectangle, no fillets */
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -176,14 +184,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-background {
   position: absolute;
-  inset: -2%;
+  inset: -5%; /* Small overflow for parallax room, not overly zoomed */
   background-image: url('/images/hero_farm_bg.jpg');
   background-size: cover;
   background-position: center;
-  transition: transform 0.5s ease-out;
-}
-.hero:hover .hero-background {
-  transform: scale(1.02);
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -260,16 +265,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .categories {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   gap: 24px;
+  padding-bottom: 24px;
+  scrollbar-width: none; /* Firefox */
+}
+.categories::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .category-card {
   position: relative;
+  flex: 0 0 80%; /* Takes up 80% on mobile, snaps perfectly */
+  max-width: 320px; /* Don't get too large on desktop */
   border-radius: 32px;
   overflow: hidden;
   aspect-ratio: 3/4;
+  scroll-snap-align: center;
   background: var(--card-bg);
 }
 
@@ -277,11 +293,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s var(--ease-out-framer);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .category-card:hover img {
-  transform: scale(1.08);
+  /* Elevate, slight rotation tilt, and scale zoom */
+  transform: scale(1.06) translateY(-6px) rotate(1deg);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .category-title {
@@ -299,7 +318,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Products Grid */
 .products-section {
-  padding: 40px 0 120px 0;
+  padding: 80px 60px 120px 60px;
+  margin: 40px;
+  border-radius: 40px;
+  background-color: #E6EAE1; /* Matching rounded panel */
 }
 
 .products-grid {
@@ -325,6 +347,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-bottom: 24px;
 }
 
 .product-image-container {
@@ -339,18 +362,21 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s var(--ease-out-framer);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .product-item:hover .product-image-container img {
-  transform: scale(1.08);
+  /* Lift and tilt */
+  transform: scale(1.05) translateY(-5px) rotate(-1deg);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .product-details {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 8px;
+  padding: 0 24px;
 }
 
 .product-info h3 {
@@ -368,7 +394,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Best Sellers */
 .best-sellers-section {
-  padding: 100px 40px;
+  padding: 100px 60px;
+  margin: 40px;
+  border-radius: 40px;
+  background-color: #E6EAE1; /* Matching rounded panel */
 }
 
 .best-sellers-card {
@@ -391,6 +420,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-bottom: 24px;
 }
 
 .best-product-img-wrapper {
@@ -404,11 +434,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s var(--ease-out-framer);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .best-product-card:hover .best-product-img-wrapper img {
-  transform: scale(1.08);
+  transform: scale(1.06) translateY(-8px) rotate(1.5deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 .discount-badge {
