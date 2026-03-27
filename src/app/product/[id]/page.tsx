@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import MobileNav from '@/components/MobileNav';
+import GlobalScrollObserver from '@/components/GlobalScrollObserver';
 
 const productsDB: Record<string, any> = {
   "desi-ghee": {
@@ -59,6 +60,7 @@ export default function ProductPage() {
         </nav>
         <MobileNav />
       </header>
+      <GlobalScrollObserver />
 
       <div className="container product-page-container animate-fade-up delay-1">
         <div className="breadcrumb">

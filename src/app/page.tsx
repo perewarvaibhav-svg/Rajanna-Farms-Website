@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import MobileNav from '@/components/MobileNav';
-
+import GlobalScrollObserver from '@/components/GlobalScrollObserver';
 export default function Home() {
   return (
     <main>
+      <GlobalScrollObserver />
       {/* 1. Header (logo + menu) */}
       <header className="top-nav animate-fade-up">
         <a href="/" className="brand-logo">Rajanna Farms</a>
@@ -58,7 +59,7 @@ export default function Home() {
             { title: 'Spices', img: '/images/hero_farm_bg.jpg', link: '/product/spices' }
           ].map((cat, i) => (
             <Link href={cat.link} key={i}>
-              <div className="category-card">
+              <div className="category-card animate-mask-reveal animate-fade-up">
                 <div className="watermark">Rajanna Farms</div>
                 <img src={cat.img} alt={cat.title} />
                 <div className="hero-overlay" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%)' }}></div>
@@ -77,7 +78,7 @@ export default function Home() {
             <h2>Fresh Milk</h2>
             <div className="product-item">
               <Link href="/product/cow-milk">
-                <div className="product-image-container" style={{ cursor: 'pointer' }}>
+                <div className="product-image-container animate-mask-reveal animate-fade-up" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
                   <img src="/images/cow_milk_product.jpg" alt="Fresh Cow Milk" />
                 </div>
@@ -98,7 +99,7 @@ export default function Home() {
             
             <div className="product-item">
               <Link href="/product/buffalo-milk">
-                <div className="product-image-container" style={{ cursor: 'pointer' }}>
+                <div className="product-image-container animate-mask-reveal animate-fade-up" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
                   <img src="/images/buffalo_milk_product.jpg" alt="Fresh Buffalo Milk" />
                 </div>
