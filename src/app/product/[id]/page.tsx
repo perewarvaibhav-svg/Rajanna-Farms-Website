@@ -9,7 +9,7 @@ const productsDB: Record<string, any> = {
     title: "Reserve A2 Desi Cow Ghee",
     price: "₹770",
     unit: "1 Litre",
-    image: "/images/desi_ghee_product.png",
+    image: "/images/desi_ghee_product.jpg",
     description: "Our Reserve A2 Desi Cow Ghee is the crown jewel of Rajanna Farms. Made using the ancient Vedic Bilona method, we culture farm-fresh A2 milk into curd, then hand-churn it into makhan before slowly simmering it over an open wood fire. The result is a vibrant golden ghee with a rich, nutty aroma—completely untouched by chemicals or preservatives. Packed with Omega-3 and essential vitamins, it’s a pure spoonful of wellness for your family.",
     reviews: [
       { name: "Sita Sharma", rating: 5, comment: "Absolutely pure! The aroma takes me back to my village. You can smell the authenticity the moment you open the jar." },
@@ -21,7 +21,7 @@ const productsDB: Record<string, any> = {
     title: "Wild Forest Honey",
     price: "₹749",
     unit: "500g",
-    image: "/images/wild_honey_product.png",
+    image: "/images/wild_honey_product.jpg",
     description: "Harvested directly from deep natural forests, our Wild Forest Honey is raw, unfiltered, and unpasteurized. It retains all the natural enzymes, pollen, and floral nectar that commercial processing destroys. Its dark amber color and complex, robust flavor profile make it a perfect natural sweetener for your morning tea, pancakes, or health remedies.",
     reviews: [
       { name: "Kunal D.", rating: 5, comment: "The thickness and taste are unmatched. Pure magic." },
@@ -33,7 +33,7 @@ const productsDB: Record<string, any> = {
     title: "Fresh Farm Cow Milk",
     price: "₹60",
     unit: "1 Litre",
-    image: "/images/cow_milk_product.png",
+    image: "/images/cow_milk_product.jpg",
     description: "Experience milk the way nature intended. Sourced entirely from our own free-grazing cows, this milk is delivered to your doorstep within hours of milking. It undergoes strict quality checks to ensure zero adulteration—no hormones, no antibiotics, just rich, creamy, and highly nutritious pure milk for your daily needs.",
     reviews: [
       { name: "Meera T.", rating: 5, comment: "Reminds me of the milk we used to get decades ago. So thick and pure." },

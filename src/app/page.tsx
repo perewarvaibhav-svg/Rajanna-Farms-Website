@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       {/* 3. Hero Section */}
-      <section className="hero animate-fade-up delay-1" style={{ backgroundImage: "url('/images/hero_farm_bg.png')" }}>
+      <section className="hero animate-fade-up delay-1" style={{ backgroundImage: "url('/images/hero_farm_bg.jpg')" }}>
         <div className="hero-overlay"></div>
         <div className="watermark watermark-hero">Rajanna Farms</div>
         <div className="hero-content">
@@ -51,11 +51,11 @@ export default function Home() {
         <h2 className="section-header">Collections</h2>
         <div className="categories">
           {[ 
-            { title: 'Cow Milk', img: '/images/cow_milk_product.png', link: '/product/cow-milk' },
-            { title: 'Ghee', img: '/images/desi_ghee_product.png', link: '/product/desi-ghee' },
-            { title: 'Honey', img: '/images/wild_honey_product.png', link: '/product/wild-honey' },
-            { title: 'Millets', img: '/images/hero_farm_bg.png', link: '/product/millets' },
-            { title: 'Spices', img: '/images/hero_farm_bg.png', link: '/product/spices' }
+            { title: 'Cow Milk', img: '/images/cow_milk_product.jpg', link: '/product/cow-milk' },
+            { title: 'Ghee', img: '/images/desi_ghee_product.jpg', link: '/product/desi-ghee' },
+            { title: 'Honey', img: '/images/wild_honey_product.jpg', link: '/product/wild-honey' },
+            { title: 'Millets', img: '/images/hero_farm_bg.jpg', link: '/product/millets' },
+            { title: 'Spices', img: '/images/hero_farm_bg.jpg', link: '/product/spices' }
           ].map((cat, i) => (
             <Link href={cat.link} key={i}>
               <div className="category-card">
@@ -79,7 +79,7 @@ export default function Home() {
               <Link href="/product/cow-milk">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/cow_milk_product.png" alt="Fresh Cow Milk" />
+                  <img src="/images/cow_milk_product.jpg" alt="Fresh Cow Milk" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -100,7 +100,7 @@ export default function Home() {
               <Link href="/product/buffalo-milk">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/buffalo_milk_product.png" alt="Fresh Buffalo Milk" />
+                  <img src="/images/buffalo_milk_product.jpg" alt="Fresh Buffalo Milk" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -125,7 +125,7 @@ export default function Home() {
               <Link href="/product/desi-ghee">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/desi_ghee_product.png" alt="A2 Cow Ghee" />
+                  <img src="/images/desi_ghee_product.jpg" alt="A2 Cow Ghee" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -146,7 +146,7 @@ export default function Home() {
               <Link href="/product/wild-honey">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/wild_honey_product.png" alt="Wild Forest Honey" />
+                  <img src="/images/wild_honey_product.jpg" alt="Wild Forest Honey" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -171,7 +171,7 @@ export default function Home() {
               <Link href="/product/millets">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/hero_farm_bg.png" alt="Organic Pearl Millet" />
+                  <img src="/images/hero_farm_bg.jpg" alt="Organic Pearl Millet" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -192,7 +192,7 @@ export default function Home() {
               <Link href="/product/spices">
                 <div className="product-image-container" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/hero_farm_bg.png" alt="Fresh Turmeric Powder" />
+                  <img src="/images/hero_farm_bg.jpg" alt="Fresh Turmeric Powder" />
                 </div>
               </Link>
               <div className="product-details" style={{ flexDirection: 'column', gap: '15px', marginTop: '10px' }}>
@@ -229,7 +229,7 @@ export default function Home() {
               <Link href="/product/desi-ghee">
                 <div className="best-product-img-wrapper" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/desi_ghee_product.png" alt="Desi Ghee" />
+                  <img src="/images/desi_ghee_product.jpg" alt="Desi Ghee" />
                   <div className="discount-badge">Sale 38%</div>
                 </div>
               </Link>
@@ -253,7 +253,7 @@ export default function Home() {
               <Link href="/product/wild-honey">
                 <div className="best-product-img-wrapper" style={{ cursor: 'pointer' }}>
                   <div className="watermark">Rajanna Farms</div>
-                  <img src="/images/wild_honey_product.png" alt="Wild Honey" />
+                  <img src="/images/wild_honey_product.jpg" alt="Wild Honey" />
                   <div className="discount-badge">₹349</div>
                 </div>
               </Link>
