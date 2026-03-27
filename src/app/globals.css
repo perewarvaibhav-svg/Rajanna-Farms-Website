@@ -38,14 +38,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animations */
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(60px) scale(0.98); filter: blur(12px); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
-}
-
-@keyframes slowPan {
-  0% { transform: scale(1.02); }
-  50% { transform: scale(1.1) translate(-1%, -1%); }
-  100% { transform: scale(1.02); }
+  0% { opacity: 0; transform: translateY(60px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
 }
 
 @keyframes marquee {
@@ -55,31 +49,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-up {
   opacity: 0;
-  transform: translateY(60px) scale(0.98);
-  filter: blur(12px);
+  animation: fadeUp 1s var(--ease-out-framer) forwards;
 }
-.animate-fade-up.is-visible {
-  animation: fadeUp 1.2s var(--ease-out-framer) forwards;
-}
-.delay-1.is-visible { animation-delay: 0.15s; }
-.delay-2.is-visible { animation-delay: 0.3s; }
-.delay-3.is-visible { animation-delay: 0.45s; }
-.delay-4.is-visible { animation-delay: 0.6s; }
 
-/* Signature Framer Mask Reveal Animation */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Remove broken mask-reveal completely to stop invisible image bug */
 .animate-mask-reveal {
-  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  transition: clip-path 1.4s var(--ease-out-framer);
-}
-.animate-mask-reveal.is-visible {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-.animate-mask-reveal img {
-  transform: scale(1.3) translateY(20px);
-  transition: transform 1.8s var(--ease-out-framer);
-}
-.animate-mask-reveal.is-visible img {
-  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 
 /* Utility Classes */
@@ -184,32 +164,43 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
   position: relative;
-  aspect-ratio: 16/9; /* Perfect photography ratio so nothing is cut off */
+  aspect-ratio: 21/9; /* Perfect widescreen photography ratio so it doesn't wildly crop */
   max-height: 85vh;
   margin: 20px 40px;
   border-radius: 32px;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: flex-end;
-  /* KnitKnots style Parallax pseudo-element */
+  background: var(--primary);
+}
+
+.hero-background {
+  position: absolute;
+  inset: -2%;
+  background-image: url('/images/hero_farm_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease-out;
+}
+.hero:hover .hero-background {
+  transform: scale(1.02);
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%);
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   padding: 60px;
 }
 
-.hero h1 {
+.hero-content h1 {
   font-size: 5rem;
   margin-bottom: 24px;
   line-height: 1;
@@ -219,10 +210,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-content p {
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 32px;
   opacity: 0.9;
   max-width: 500px;
+  line-height: 1.6;
 }
 
 /* Watermark / Brand Tag */
@@ -286,12 +278,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s var(--ease-out-framer);
-  animation: slowPan 35s var(--ease-slow-pan) infinite alternate;
 }
 
 .category-card:hover img {
-  transform: scale(1.08); /* slight upscale on hover over the animation */
-  animation-play-state: paused;
+  transform: scale(1.08);
 }
 
 .category-title {
@@ -350,12 +340,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   transition: transform 1.2s var(--ease-out-framer);
-  animation: slowPan 25s var(--ease-slow-pan) infinite alternate-reverse;
 }
 
 .product-item:hover .product-image-container img {
   transform: scale(1.08);
-  animation-play-state: paused;
 }
 
 .product-details {
@@ -416,12 +404,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s var(--ease-out-framer);
-  animation: slowPan 30s var(--ease-slow-pan) infinite alternate;
+  transition: transform 0.8s var(--ease-out-framer);
 }
 
 .best-product-card:hover .best-product-img-wrapper img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .discount-badge {
@@ -619,15 +606,13 @@ h1, h2, h3, h4, h5, h6 {
   /* Hero */
   .hero {
     margin: 12px 16px;
-    aspect-ratio: 3/4; /* Taller on mobile to fit the text overlay */
+    aspect-ratio: 4/5; /* Much taller on mobile so text fits gracefully */
     max-height: none;
     border-radius: 24px;
-    background-position: left center;
   }
-  .hero h1 { font-size: 2.6rem; line-height: 1.1; }
   .hero-content { padding: 30px; }
-  .hero-content p { font-size: 0.95rem; }
-  .watermark-hero { bottom: 30px; right: 20px; font-size: 0.62rem; }
+  .hero-content h1 { font-size: 3rem; margin-bottom: 16px; }
+  .hero-content p { font-size: 1.05rem; }
 
   /* Marquee */
   .marquee-item { padding: 0 20px; }
