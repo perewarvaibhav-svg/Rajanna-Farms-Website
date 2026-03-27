@@ -635,12 +635,11 @@ h1, h2, h3, h4, h5, h6 {
   .top-nav { padding: 16px 20px; }
   .brand-logo { font-size: 1.7rem; }
 
-  /* Hero */
+  /* Hero - Full edge-to-edge on mobile too */
   .hero {
-    margin: 12px 16px;
-    aspect-ratio: 4/5; /* Much taller on mobile so text fits gracefully */
-    max-height: none;
-    border-radius: 24px;
+    margin: 0;
+    min-height: 100vh;
+    border-radius: 0;
   }
   .hero-content { padding: 30px; }
   .hero-content h1 { font-size: 3rem; margin-bottom: 16px; }
@@ -652,21 +651,12 @@ h1, h2, h3, h4, h5, h6 {
   /* Section headers */
   .section-header { font-size: 2.4rem; margin-bottom: 32px; }
 
-  /* Categories — 2 cols, no orphan: center last if odd */
+  /* Categories — Swipe carousel continues naturally on mobile */
   .categories-section { padding: 60px 24px; margin: 16px; border-radius: 24px; }
-  .categories {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .categories > *:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-  }
   .category-title { font-size: 1.2rem; bottom: 16px; }
 
-  /* Products */
-  .products-section { padding: 40px 16px 60px; }
+  /* Products - Matching rounded margin/padding to other sections */
+  .products-section { padding: 60px 16px; margin: 16px; border-radius: 24px; }
   .products-grid { grid-template-columns: 1fr; gap: 24px; }
   .product-image-container { height: 280px; border-radius: 20px; }
   .product-group h2 { font-size: 1.8rem; }
