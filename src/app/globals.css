@@ -613,9 +613,24 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px;
     border-radius: 24px;
   }
+  .features-list { text-align: center; }
   .features-list h2 { font-size: 2.2rem; }
-  .best-products { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .best-product-img-wrapper { height: 220px; border-radius: 20px; }
+  .features-list p { margin-left: auto; margin-right: auto; text-align: center; }
+  .best-products { grid-template-columns: 1fr; gap: 40px; }
+  .best-product-img-wrapper { height: 340px; border-radius: 20px; }
+
+  /* Button Overrides */
+  .product-details > div:last-child {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .product-details > div:last-child > * {
+    width: 100% !important;
+    flex: none !important;
+    display: block;
+    text-align: center;
+  }
+  .product-info { flex-direction: column; align-items: flex-start; gap: 4px; }
 
   /* Why Choose Us */
   .why-choose-us-section { padding: 60px 0; }
