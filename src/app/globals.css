@@ -659,7 +659,7 @@ h1, h2, h3, h4, h5, h6 {
   /* Products - Matching rounded margin/padding to other sections */
   .products-section { padding: 60px 16px; margin: 16px; border-radius: 24px; }
   .products-grid { grid-template-columns: 1fr; gap: 24px; }
-  .product-image-container { height: 280px; border-radius: 20px; }
+  .product-image-container { height: 280px; }
   .product-group h2 { font-size: 1.8rem; }
 
   /* Best Sellers */
@@ -674,7 +674,7 @@ h1, h2, h3, h4, h5, h6 {
   .features-list h2 { font-size: 2.2rem; }
   .features-list p { margin-left: auto; margin-right: auto; text-align: center; }
   .best-products { grid-template-columns: 1fr; gap: 40px; }
-  .best-product-img-wrapper { height: 340px; border-radius: 20px; }
+  .best-product-img-wrapper { height: 340px; }
 
   /* Button Overrides */
   .product-details > div:last-child {
